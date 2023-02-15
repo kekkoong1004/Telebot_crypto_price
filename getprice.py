@@ -1,4 +1,4 @@
-import os
+import osgit push 
 from dotenv import load_dotenv
 load_dotenv()
 import telebot
@@ -31,11 +31,11 @@ def get_price():
 
 # print(get_price())
 
-@bot.message_handler(commands=['start'])
+@bot.message_handler()
 def send_message(message):
   while True:
-    bot.reply_to(message, f'Bitcoin price now is USD ${telegram_API}')
-    time.sleep(1000)  # Sleep for an hour
+    bot.send_message(chat_id=message.chat.id, text=f'Bitcoin price now is USD ${telegram_API}')
+    time.sleep(5)  # Sleep for an hour
 
 bot.polling()
 
